@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Librería Nexus - Nosotros</title>
+    <link rel="icon" type="image/png" href="img/logo.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Literata:ital,opsz,wght@0,7..72,400;0,7..72,500;0,7..72,600;1,7..72,400&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "background": "#f8f9ff",
+                        "primary-fixed-dim": "#bec7da",
+                        "tertiary-container": "#332000",
+                        "on-tertiary-fixed": "#291800",
+                        "primary": "#050e1c",
+                        "on-primary-fixed-variant": "#3e4757",
+                        "tertiary-fixed": "#ffddb1",
+                        "on-tertiary-fixed-variant": "#614000",
+                        "on-error-container": "#93000a",
+                        "surface": "#f8f9ff",
+                        "outline": "#75777c",
+                        "on-error": "#ffffff",
+                        "tertiary": "#170c00",
+                        "on-secondary": "#ffffff",
+                        "surface-container-lowest": "#ffffff",
+                        "on-surface": "#191c21",
+                        "on-primary-container": "#828b9d",
+                        "surface-tint": "#565f6f",
+                        "on-secondary-container": "#6f2000",
+                        "inverse-primary": "#bec7da",
+                        "secondary-fixed": "#ffdbcf",
+                        "error-container": "#ffdad6",
+                        "inverse-on-surface": "#eff0f7",
+                        "surface-container": "#eceef4",
+                        "on-secondary-fixed": "#390c00",
+                        "secondary": "#a23e18",
+                        "on-primary": "#ffffff",
+                        "surface-container-high": "#e6e8ef",
+                        "primary-fixed": "#dae3f6",
+                        "on-surface-variant": "#45474c",
+                        "surface-dim": "#d8dae0",
+                        "surface-bright": "#f8f9ff",
+                        "on-primary-fixed": "#131c2a",
+                        "on-background": "#191c21",
+                        "on-tertiary-container": "#b0833c",
+                        "outline-variant": "#c5c6cc",
+                        "on-secondary-fixed-variant": "#822801",
+                        "tertiary-fixed-dim": "#f2be71",
+                        "surface-container-low": "#f2f3fa",
+                        "surface-variant": "#e1e2e9",
+                        "on-tertiary": "#ffffff",
+                        "surface-container-highest": "#e1e2e9",
+                        "primary-container": "#1b2432",
+                        "inverse-surface": "#2e3136",
+                        "secondary-fixed-dim": "#ffb59c",
+                        "secondary-container": "#fe8357",
+                        "error": "#ba1a1a"
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    spacing: {
+                        "gutter": "1.5rem",
+                        "space-xl": "2.5rem",
+                        "space-xs": "0.25rem",
+                        "margin-mobile": "1.25rem",
+                        "gutter-mobile": "1rem",
+                        "space-2xl": "4rem",
+                        "space-sm": "0.5rem",
+                        "margin": "3.5rem",
+                        "space-md": "1rem",
+                        "margin-tablet": "2rem",
+                        "space-lg": "1.5rem"
+                    },
+                    fontFamily: {
+                        "headline-sm": ["Literata"],
+                        "title-md": ["Manrope"],
+                        "body-lg": ["Manrope"],
+                        "display-md-mobile": ["Literata"],
+                        "body-sm": ["Manrope"],
+                        "headline-lg": ["Literata"],
+                        "headline-md": ["Literata"],
+                        "headline-lg-mobile": ["Literata"],
+                        "display-lg": ["Literata"],
+                        "display-lg-mobile": ["Literata"],
+                        "display-md": ["Literata"],
+                        "title-lg": ["Manrope"],
+                        "label-sm": ["Manrope"],
+                        "body-md": ["Manrope"],
+                        "label-md": ["Manrope"]
+                    },
+                    fontSize: {
+                        "headline-sm": ["20px", { "lineHeight": "28px", "fontWeight": "600" }],
+                        "title-md": ["16px", { "lineHeight": "24px", "fontWeight": "600" }],
+                        "body-lg": ["17px", { "lineHeight": "28px", "fontWeight": "400" }],
+                        "display-md-mobile": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "400" }],
+                        "body-sm": ["13px", { "lineHeight": "20px", "fontWeight": "400" }],
+                        "headline-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "500" }],
+                        "headline-md": ["24px", { "lineHeight": "32px", "fontWeight": "500" }],
+                        "headline-lg-mobile": ["26px", { "lineHeight": "34px", "letterSpacing": "-0.01em", "fontWeight": "500" }],
+                        "display-lg": ["56px", { "lineHeight": "64px", "letterSpacing": "-0.02em", "fontWeight": "400" }],
+                        "display-lg-mobile": ["38px", { "lineHeight": "46px", "letterSpacing": "-0.015em", "fontWeight": "400" }],
+                        "display-md": ["44px", { "lineHeight": "52px", "letterSpacing": "-0.015em", "fontWeight": "400" }],
+                        "title-lg": ["18px", { "lineHeight": "26px", "letterSpacing": "-0.005em", "fontWeight": "600" }],
+                        "label-sm": ["11px", { "lineHeight": "16px", "letterSpacing": "0.06em", "fontWeight": "700" }],
+                        "body-md": ["15px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "label-md": ["13px", { "lineHeight": "18px", "letterSpacing": "0.03em", "fontWeight": "600" }]
+                    }
+                }
+            }
+        };
+    </script>
+    <link rel="stylesheet" href="css/estilos.css">
+</head>
+<body class="bg-surface font-body-md text-on-surface antialiased">
+
+    <!-- HEADER -->
+    <header class="fixed top-0 left-0 w-full z-50 bg-surface-container-lowest/90 backdrop-blur-md shadow-[0_1px_8px_rgba(27,36,50,0.06)]">
+        <div class="h-20 max-w-[1440px] mx-auto px-margin-mobile md:px-margin-tablet lg:px-margin flex items-center justify-between gap-space-md">
+            <div class="flex items-center gap-space-sm">
+                <img alt="Logo Librería Nexus" class="h-8 w-auto object-contain" src="img/logo.png">
+                <a class="font-headline-md text-headline-md tracking-tight text-primary-container hidden sm:inline-block" href="index.html">Librería Nexus</a>
+            </div>
+            <nav class="hidden lg:flex items-center gap-space-md px-space-sm">
+                <a class="font-title-md text-title-md text-on-surface-variant hover:text-on-surface px-space-sm py-space-xs transition-colors" href="index.html">Inicio</a>
+                <a class="font-title-md text-title-md text-on-surface-variant hover:text-on-surface px-space-sm py-space-xs transition-colors" href="catalogo.html">Catálogo</a>
+                <a class="font-title-md text-title-md text-on-surface-variant hover:text-on-surface px-space-sm py-space-xs transition-colors" href="catalogo.html#categorias">Categorías</a>
+                <a class="px-space-sm py-space-xs transition-colors bg-surface-container-high text-on-surface font-semibold rounded-lg" href="nosotros.html" aria-current="page">Nosotros</a>
+                <a class="font-title-md text-title-md text-on-surface-variant hover:text-on-surface px-space-sm py-space-xs transition-colors" href="contacto.html">Contacto</a>
+            </nav>
+            <div class="flex items-center gap-space-md">
+                <div class="hidden xl:flex items-center gap-space-xs bg-tertiary-fixed text-on-tertiary-fixed px-space-sm py-1 rounded-full">
+                    <span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>
+                    <span class="font-label-sm text-label-sm uppercase">Tienda física abierta hoy hasta 20:00</span>
+                </div>
+                <div class="flex items-center bg-surface-container-low px-space-sm py-2 rounded-lg gap-space-xs cursor-pointer hover:bg-surface-container transition-colors">
+                    <span class="material-symbols-outlined text-on-surface-variant text-[20px]">search</span>
+                    <span class="font-body-sm text-body-sm text-on-surface-variant hidden md:inline">Buscar libro...</span>
+                </div>
+                <div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center shrink-0">
+                    <span class="material-symbols-outlined text-on-primary text-[18px]">person</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- MAIN -->
+    <main class="w-full pt-20 bg-surface min-h-[calc(100vh-20rem)]">
+        <div class="flex flex-col w-full">
+
+            <!-- SECCIÓN "SOBRE NOSOTROS" -->
+            <section class="w-full bg-surface-container-low py-space-2xl" id="nosotros">
+                <div class="max-w-[1440px] mx-auto px-margin-mobile md:px-margin-tablet lg:px-margin">
+                    <div class="grid grid-cols-1 lg:grid-cols-12 gap-space-xl items-center">
+                        <!-- Texto Editorial -->
+                        <div class="lg:col-span-6 flex flex-col gap-space-md">
+                            <span class="font-label-sm text-label-sm uppercase tracking-widest text-secondary font-bold">Nuestra Filosofía</span>
+                            <h2 class="font-display-md text-display-md text-primary font-serif">Sobre Librería Nexus</h2>
+                            <p class="font-body-lg text-body-lg text-on-surface leading-relaxed p-space-md bg-surface-container-lowest rounded-xl shadow-sm border-l-4 border-secondary italic">
+                                "Librería Nexus es un espacio dedicado a conectar lectores con nuevas historias, conocimientos e ideas. Nuestro catálogo en línea permite consultar fácilmente nuestros libros y conocer su disponibilidad antes de visitarnos."
+                            </p>
+                            <!-- 3 Pilares Visuales con Iconos Minimalistas -->
+                            <div class="grid grid-cols-1 sm:grid-cols-3 gap-space-md mt-space-sm">
+                                <div class="flex flex-col gap-1 p-space-sm bg-surface-container-lowest rounded-lg shadow-sm">
+                                    <span class="material-symbols-outlined text-secondary text-[28px]">sync_saved_locally</span>
+                                    <h4 class="font-title-md text-title-md text-primary mt-1">Catálogo transparente</h4>
+                                    <p class="font-body-sm text-body-sm text-on-surface-variant">Inventario sincrónico en tiempo real sin sorpresas en sala.</p>
+                                </div>
+                                <div class="flex flex-col gap-1 p-space-sm bg-surface-container-lowest rounded-lg shadow-sm">
+                                    <span class="material-symbols-outlined text-secondary text-[28px]">local_library</span>
+                                    <h4 class="font-title-md text-title-md text-primary mt-1">Curaduría literaria</h4>
+                                    <p class="font-body-sm text-body-sm text-on-surface-variant">Selección editorial independiente centrada en calidad tangible.</p>
+                                </div>
+                                <div class="flex flex-col gap-1 p-space-sm bg-surface-container-lowest rounded-lg shadow-sm">
+                                    <span class="material-symbols-outlined text-secondary text-[28px]">support_agent</span>
+                                    <h4 class="font-title-md text-title-md text-primary mt-1">Asesoramiento personal</h4>
+                                    <p class="font-body-sm text-body-sm text-on-surface-variant">Libreros apasionados listos para guiar tu próxima lectura.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Fotografía Editorial Acogedora de Librería -->
+                        <div class="lg:col-span-6 relative">
+                            <div class="w-full aspect-[4/3] rounded-2xl overflow-hidden shadow-2xl bg-primary-container relative">
+                                <img class="w-full h-full object-cover" alt="Interior de Librería Nexus" src="img/general/libreria-interior.jpg" onerror="this.style.display='none'">
+                                <div class="absolute inset-0 bg-gradient-to-t from-primary/80 via-transparent to-transparent flex flex-col justify-end p-space-lg text-on-primary">
+                                    <span class="font-label-sm text-label-sm uppercase tracking-widest text-secondary-fixed">Sede Central</span>
+                                    <h3 class="font-headline-sm text-headline-sm font-serif">Un refugio físico para la mente curiosa</h3>
+                                    <p class="font-body-sm text-body-sm text-surface-variant mt-1">Salas diseñadas para hojear con calma, descubrir portadas y conversar sobre literatura.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+        </div>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="w-full bg-surface-container-low">
+        <div class="max-w-[1440px] mx-auto px-margin-mobile md:px-margin-tablet lg:px-margin pt-space-2xl pb-space-xl">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-space-xl">
+                <div class="flex flex-col gap-space-md">
+                    <div class="flex items-center gap-space-xs">
+                        <img alt="Logo Librería Nexus" class="h-8 w-auto object-contain" src="img/logo.png">
+                        <span class="font-headline-sm text-headline-sm text-primary">Librería Nexus</span>
+                    </div>
+                    <p class="font-body-sm text-body-sm text-on-surface-variant pr-space-md">Conectando lectores exigentes con páginas inolvidables y ediciones de colección en el corazón de la ciudad.</p>
+                </div>
+                <div class="flex flex-col gap-space-sm">
+                    <h3 class="font-title-lg text-title-lg text-on-surface mb-space-xs">Exploración</h3>
+                    <a class="font-body-md text-body-md text-on-surface-variant hover:text-on-surface transition-colors" href="catalogo.html">Catálogo Completo</a>
+                    <a class="font-body-md text-body-md text-on-surface-variant hover:text-on-surface transition-colors" href="catalogo.html">Novedades Editoriales</a>
+                    <a class="font-body-md text-body-md text-on-surface-variant hover:text-on-surface transition-colors" href="catalogo.html">Más Buscados</a>
+                    <a class="font-body-md text-body-md text-on-surface-variant hover:text-on-surface transition-colors" href="catalogo.html">Disponibilidad por Sala</a>
+                </div>
+                <div class="flex flex-col gap-space-sm">
+                    <h3 class="font-title-lg text-title-lg text-on-surface mb-space-xs">Categorías</h3>
+                    <a class="font-body-md text-body-md text-on-surface-variant hover:text-on-surface transition-colors" href="catalogo.html#categorias">Literatura &amp; Poesía</a>
+                    <a class="font-body-md text-body-md text-on-surface-variant hover:text-on-surface transition-colors" href="catalogo.html#categorias">Ciencia &amp; Divulgación</a>
+                    <a class="font-body-md text-body-md text-on-surface-variant hover:text-on-surface transition-colors" href="catalogo.html#categorias">Tecnología &amp; Diseño</a>
+                    <a class="font-body-md text-body-md text-on-surface-variant hover:text-on-surface transition-colors" href="catalogo.html#categorias">Historia &amp; Humanidades</a>
+                </div>
+                <div class="flex flex-col gap-space-sm">
+                    <h3 class="font-title-lg text-title-lg text-on-surface mb-space-xs">Atención Presencial</h3>
+                    <div class="flex items-start gap-space-xs text-on-surface-variant">
+                        <span class="material-symbols-outlined text-[18px] mt-0.5">location_on</span>
+                        <span class="font-body-sm text-body-sm">Av. de los Libros 452, Barrio Histórico</span>
+                    </div>
+                    <div class="flex items-center gap-space-xs text-on-surface-variant">
+                        <span class="material-symbols-outlined text-[18px]">call</span>
+                        <span class="font-body-sm text-body-sm">+34 912 345 678</span>
+                    </div>
+                    <div class="flex items-center gap-space-xs text-on-surface-variant">
+                        <span class="material-symbols-outlined text-[18px]">mail</span>
+                        <span class="font-body-sm text-body-sm">contacto@librerianexus.com</span>
+                    </div>
+                    <div class="flex items-center gap-space-xs text-on-surface-variant">
+                        <span class="material-symbols-outlined text-[18px]">schedule</span>
+                        <span class="font-body-sm text-body-sm">Lunes a Sábado: 10:00 - 20:00</span>
+                    </div>
+                </div>
+            </div>
+            <div class="mt-space-2xl pt-space-lg flex flex-col sm:flex-row justify-between items-center gap-space-md bg-surface-container rounded-lg px-space-md py-space-sm">
+                <p class="font-body-sm text-body-sm text-on-surface-variant">Copyright © 2026 Librería Nexus. Todos los derechos reservados.</p>
+                <div class="flex items-center gap-space-md">
+                    <span class="font-label-sm text-label-sm text-on-surface-variant uppercase">Edición &amp; Cuidado del Libro</span>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
