@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Librería Nexus — Panel de Control</title>
+<link rel="icon" type="image/png" href="../img/logo.png">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet">
+<link href="https://fonts.googleapis.com" rel="preconnect"><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect">
+<link href="https://fonts.googleapis.com/css2?family=Literata:ital,opsz,wght@0,7..72,200..900;1,7..72,200..900&amp;family=Manrope:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="js/tailwind-config.js"></script>
+<link href="css/empleados.css" rel="stylesheet">
+</head>
+<body class="bg-background font-body-md text-on-surface antialiased" data-page="dashboard">
+<main class="w-full">
+<div class="px-space-xl py-space-xl flex flex-col gap-space-xl max-w-[1520px] mx-auto w-full">
+
+  <header class="flex flex-col lg:flex-row lg:items-end justify-between gap-space-lg">
+    <div class="flex flex-col gap-space-xs">
+      <div class="flex items-center gap-space-sm">
+        <span class="inline-flex items-center px-space-sm py-0.5 rounded-full bg-surface-container-high text-on-surface-variant font-label-sm text-label-sm tracking-widest uppercase">Sala Central • Nexus Edición</span>
+      </div>
+      <h1 class="font-display-md text-display-md text-primary tracking-tight font-normal">Panel de Control Editorial &amp; Inventario</h1>
+      <p class="font-body-md text-body-md text-on-surface-variant">
+        Bienvenido, <strong class="font-semibold text-on-surface" data-user-name>Empleado</strong>. Supervisión de acervo y existencias en sala física.
+      </p>
+    </div>
+    <div class="flex items-center gap-space-md self-start lg:self-auto">
+      <button class="flex items-center gap-space-xs px-space-md py-3 rounded-lg bg-surface-container-low text-on-surface hover:bg-surface-container transition-all shadow-sm font-title-md text-title-md" id="btn-refresh">
+        <span class="material-symbols-outlined text-[20px]" id="refresh-icon">autorenew</span>
+        <span>Actualizar datos</span>
+      </button>
+      <a href="libro-form.html" class="flex items-center gap-space-sm px-space-lg py-3 rounded-lg bg-secondary text-on-secondary hover:bg-secondary-container transition-all shadow-sm font-title-md text-title-md">
+        <span class="material-symbols-outlined text-[20px]">add</span><span>Agregar nuevo libro</span>
+      </a>
+    </div>
+  </header>
+
+  <section class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-space-md">
+    <div class="p-space-lg rounded-xl bg-surface-container-lowest shadow-sm flex flex-col justify-between h-44 relative overflow-hidden hover:shadow-md transition-shadow">
+      <div class="flex items-start justify-between">
+        <div class="flex flex-col">
+          <span class="font-label-sm text-label-sm uppercase tracking-wider text-outline">Total de Libros</span>
+          <span class="font-display-md text-display-md text-primary mt-space-xs font-normal" id="stat-total">—</span>
+        </div>
+        <div class="w-12 h-12 rounded-xl bg-surface-container-low text-primary flex items-center justify-center"><span class="material-symbols-outlined text-[24px]">auto_stories</span></div>
+      </div>
+      <div class="flex items-center gap-space-xs font-body-sm text-body-sm text-on-surface-variant"><span>Títulos registrados en el catálogo</span></div>
+    </div>
+
+    <div class="p-space-lg rounded-xl bg-surface-container-lowest shadow-sm flex flex-col justify-between h-44 relative overflow-hidden hover:shadow-md transition-shadow">
+      <div class="flex items-start justify-between">
+        <div class="flex flex-col">
+          <span class="font-label-sm text-label-sm uppercase tracking-wider text-outline">Libros Disponibles</span>
+          <span class="font-display-md text-display-md text-primary mt-space-xs font-normal" id="stat-disponibles">—</span>
+        </div>
+        <div class="w-12 h-12 rounded-xl bg-[#eaf2ed] text-[#2a523e] flex items-center justify-center"><span class="material-symbols-outlined text-[24px]">shelves</span></div>
+      </div>
+      <div class="flex items-center justify-between">
+        <span class="font-body-sm text-body-sm text-on-surface-variant">Stock mayor a 2 ejemplares</span>
+        <span class="px-space-sm py-0.5 rounded-full bg-[#eaf2ed] text-[#2a523e] font-label-sm text-label-sm uppercase tracking-wider" id="stat-disponibles-pct">—</span>
+      </div>
+    </div>
+
+    <div class="p-space-lg rounded-xl bg-surface-container-lowest shadow-sm flex flex-col justify-between h-44 relative overflow-hidden hover:shadow-md transition-shadow">
+      <div class="flex items-start justify-between">
+        <div class="flex flex-col">
+          <span class="font-label-sm text-label-sm uppercase tracking-wider text-outline">Poco Stock</span>
+          <span class="font-display-md text-display-md text-primary mt-space-xs font-normal" id="stat-bajo">—</span>
+        </div>
+        <div class="w-12 h-12 rounded-xl bg-[#fdf4e7] text-[#8e5b10] flex items-center justify-center"><span class="material-symbols-outlined text-[24px]">warning_amber</span></div>
+      </div>
+      <div class="flex items-center justify-between">
+        <span class="font-body-sm text-body-sm text-on-surface-variant">Entre 1 y 2 ejemplares físicos</span>
+        <span class="px-space-sm py-0.5 rounded-full bg-[#fdf4e7] text-[#8e5b10] font-label-sm text-label-sm uppercase tracking-wider">Atención</span>
+      </div>
+    </div>
+
+    <div class="p-space-lg rounded-xl bg-surface-container-lowest shadow-sm flex flex-col justify-between h-44 relative overflow-hidden hover:shadow-md transition-shadow">
+      <div class="flex items-start justify-between">
+        <div class="flex flex-col">
+          <span class="font-label-sm text-label-sm uppercase tracking-wider text-outline">Recién Agregados</span>
+          <span class="font-display-md text-display-md text-primary mt-space-xs font-normal" id="stat-recientes">—</span>
+        </div>
+        <div class="w-12 h-12 rounded-xl bg-secondary-fixed text-on-secondary-fixed-variant flex items-center justify-center"><span class="material-symbols-outlined text-[24px]">history_edu</span></div>
+      </div>
+      <div class="flex items-center justify-between">
+        <span class="font-body-sm text-body-sm text-on-surface-variant">Marcados como "reciente"</span>
+        <span class="px-space-sm py-0.5 rounded-full bg-secondary text-on-secondary font-label-sm text-label-sm uppercase tracking-wider">Novedades</span>
+      </div>
+    </div>
+  </section>
+
+  <div class="flex flex-col gap-space-lg bg-surface-container-lowest rounded-xl p-space-xl shadow-sm">
+    <div class="flex flex-col md:flex-row md:items-end justify-between gap-space-md">
+      <div class="flex flex-col gap-1">
+        <div class="flex items-center gap-space-sm"><span class="w-2 h-2 rounded-full bg-secondary"></span><span class="font-label-sm text-label-sm uppercase tracking-wider text-secondary">Base Documental</span></div>
+        <h2 class="font-headline-lg text-headline-lg text-primary tracking-tight font-medium">Gestión de Libros</h2>
+        <p class="font-body-md text-body-md text-on-surface-variant">Consulta, filtra y actualiza existencias de la colección física en tiempo real.</p>
+      </div>
+    </div>
+    <div class="overflow-x-auto rounded-xl">
+      <table class="w-full text-left">
+        <thead>
+          <tr class="bg-surface-container-low text-outline font-label-sm text-label-sm uppercase tracking-wider">
+            <th class="py-space-md px-space-md rounded-l-lg">ID</th>
+            <th class="py-space-md px-space-sm">Portada</th>
+            <th class="py-space-md px-space-md">Título</th>
+            <th class="py-space-md px-space-md">Autor</th>
+            <th class="py-space-md px-space-md">Categoría</th>
+            <th class="py-space-md px-space-md">Stock</th>
+            <th class="py-space-md px-space-md">Estado</th>
+            <th class="py-space-md px-space-md rounded-r-lg text-right">Acciones</th>
+          </tr>
+        </thead>
+        <tbody id="recent-rows" class="divide-y-0"></tbody>
+      </table>
+    </div>
+    <div class="text-right">
+      <a href="libros.html" class="font-title-md text-title-md text-secondary hover:underline">Ver catálogo completo →</a>
+    </div>
+  </div>
+</div>
+</main>
+
+<script src="js/auth.js"></script>
+<script src="js/empleados.js"></script>
+<script src="js/chrome.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', async function () {
+  try {
+    const books = await NexusEmp.getBooks();
+    const total = books.length;
+    const disponibles = books.filter(b => Number(b.stock) > 2).length;
+    const bajo = books.filter(b => Number(b.stock) >= 1 && Number(b.stock) <= 2).length;
+    const recientes = books.filter(b => b.reciente === true).length;
+
+    document.getElementById('stat-total').textContent = total;
+    document.getElementById('stat-disponibles').textContent = disponibles;
+    document.getElementById('stat-bajo').textContent = bajo;
+    document.getElementById('stat-recientes').textContent = recientes;
+    document.getElementById('stat-disponibles-pct').textContent = total ? Math.round(disponibles / total * 100) + '% tasa' : '—';
+
+    // Mostrar los 8 libros con menor stock como prioridad de atención
+    const rows = [...books].sort((a, b) => Number(a.stock) - Number(b.stock)).slice(0, 8);
+    const tbody = document.getElementById('recent-rows');
+    tbody.innerHTML = rows.map(b => {
+      const st = NexusEmp.stockStatus(b.stock);
+      const badge = st.key === 'disponible' ? 'badge-disponible' : st.key === 'bajo' ? 'badge-bajo' : 'badge-agotado';
+      return `<tr class="hover:bg-surface-container-low/60 transition-colors group">
+        <td class="py-space-lg px-space-md font-mono font-label-md text-label-md text-outline">${b.id}</td>
+        <td class="py-space-lg px-space-sm"><div class="w-12 h-16 rounded overflow-hidden shadow-md bg-surface-container"><img class="w-full h-full object-cover" src="${NexusEmp.getBookCoverPath(b)}" onerror="NexusEmp.coverFallback(this)" alt="${NexusEmp.escapeHtml(b.titulo)}"></div></td>
+        <td class="py-space-lg px-space-md min-w-[220px]"><span class="font-headline-sm text-headline-sm text-primary group-hover:text-secondary transition-colors">${NexusEmp.escapeHtml(b.titulo)}</span></td>
+        <td class="py-space-lg px-space-md"><span class="font-body-md text-body-md text-on-surface">${NexusEmp.escapeHtml(b.autor)}</span></td>
+        <td class="py-space-lg px-space-md"><span class="inline-flex px-space-sm py-1 rounded-md bg-surface-container font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">${NexusEmp.escapeHtml(NexusEmp.normalizeCategory(b.categoria))}</span></td>
+        <td class="py-space-lg px-space-md"><span class="font-title-md text-title-md text-primary">${b.stock}</span></td>
+        <td class="py-space-lg px-space-md"><span class="inline-flex items-center px-space-sm py-1 rounded-full font-label-sm text-label-sm uppercase tracking-wider ${badge}">${st.label}</span></td>
+        <td class="py-space-lg px-space-md text-right">
+          <a href="libro-form.html?id=${b.id}" class="px-space-md py-1.5 rounded-lg bg-surface-container-high text-primary hover:bg-secondary hover:text-on-secondary font-title-md text-title-md transition-all shadow-sm">Editar</a>
+        </td>
+      </tr>`;
+    }).join('');
+  } catch (err) {
+    console.error(err);
+  }
+
+  document.getElementById('btn-refresh').addEventListener('click', function () {
+    const icon = document.getElementById('refresh-icon');
+    icon.classList.add('rotate-180');
+    setTimeout(() => icon.classList.remove('rotate-180'), 600);
+  });
+});
+</script>
+</body>
+</html>

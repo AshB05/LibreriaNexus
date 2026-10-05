@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Librería Nexus — Catálogo Administrativo</title>
+<link rel="icon" type="image/png" href="../img/logo.png">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet">
+<link href="https://fonts.googleapis.com" rel="preconnect"><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect">
+<link href="https://fonts.googleapis.com/css2?family=Literata:ital,opsz,wght@0,7..72,200..900;1,7..72,200..900&amp;family=Manrope:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="js/tailwind-config.js"></script>
+<link href="css/empleados.css" rel="stylesheet">
+</head>
+<body class="bg-background font-body-md text-on-surface antialiased" data-page="libros">
+<main class="w-full">
+<div class="px-space-xl py-space-xl max-w-[1440px] mx-auto w-full flex flex-col gap-space-lg">
+
+  <header class="flex flex-col md:flex-row md:items-end justify-between gap-space-lg">
+    <div class="flex flex-col gap-space-xs max-w-2xl">
+      <div class="flex items-center gap-space-xs text-secondary font-label-sm text-label-sm uppercase tracking-wider">
+        <span class="material-symbols-outlined text-[16px]">menu_book</span><span>Gestión de Catálogo</span>
+      </div>
+      <h1 class="font-headline-lg text-headline-lg text-primary tracking-tight">Catálogo Administrativo</h1>
+      <p class="font-body-md text-body-md text-on-surface-variant">Busca, filtra y gestiona todos los libros registrados.</p>
+    </div>
+    <a href="libro-form.html" class="flex items-center gap-space-sm px-space-lg py-3 rounded-lg bg-secondary text-on-secondary hover:bg-secondary-container transition-all shadow-sm font-title-md text-title-md self-start">
+      <span class="material-symbols-outlined text-[20px]">add</span><span>Agregar libro</span>
+    </a>
+  </header>
+
+  <div class="p-space-lg rounded-xl bg-surface-container-lowest shadow-sm flex flex-col gap-space-md">
+    <div class="grid grid-cols-1 md:grid-cols-12 gap-space-md">
+      <div class="md:col-span-4 relative flex items-center">
+        <span class="material-symbols-outlined absolute left-space-md text-outline text-[20px]">search</span>
+        <input class="w-full pl-11 pr-space-md py-3 bg-surface-container-low rounded-lg outline-none focus:shadow-md transition-all" id="search-input" placeholder="Buscar por título, autor, ID o ISBN..." type="text">
+      </div>
+      <div class="md:col-span-3 relative flex items-center">
+        <span class="material-symbols-outlined absolute left-space-md text-outline text-[20px]">category</span>
+        <select class="w-full pl-11 pr-space-lg py-3 bg-surface-container-low rounded-lg outline-none focus:shadow-md transition-all appearance-none cursor-pointer" id="category-select">
+          <option value="">Categoría: Todas</option>
+        </select>
+        <span class="material-symbols-outlined absolute right-space-md text-outline pointer-events-none text-[18px]">expand_more</span>
+      </div>
+      <div class="md:col-span-3 relative flex items-center">
+        <span class="material-symbols-outlined absolute left-space-md text-outline text-[20px]">tune</span>
+        <select class="w-full pl-11 pr-space-lg py-3 bg-surface-container-low rounded-lg outline-none focus:shadow-md transition-all appearance-none cursor-pointer" id="status-select">
+          <option value="">Estado: Todos</option>
+          <option value="disponible">Disponible</option>
+          <option value="bajo">Stock bajo</option>
+          <option value="agotado">Agotado</option>
+        </select>
+        <span class="material-symbols-outlined absolute right-space-md text-outline pointer-events-none text-[18px]">expand_more</span>
+      </div>
+      <div class="md:col-span-2 flex items-center gap-space-sm">
+        <label class="flex items-center gap-space-sm cursor-pointer select-none">
+          <input class="w-4 h-4 accent-secondary cursor-pointer" id="reciente-check" type="checkbox">
+          <span class="font-body-sm text-body-sm text-on-surface-variant">Solo recientes</span>
+        </label>
+      </div>
+    </div>
+  </div>
+
+  <div class="rounded-xl bg-surface-container-lowest shadow-sm overflow-hidden flex flex-col">
+    <div class="overflow-x-auto">
+      <table class="w-full text-left">
+        <thead>
+          <tr class="bg-surface-container-low text-outline font-label-sm text-label-sm uppercase tracking-wider">
+            <th class="py-space-md px-space-md">ID</th>
+            <th class="py-space-md px-space-sm">Portada</th>
+            <th class="py-space-md px-space-md">Título</th>
+            <th class="py-space-md px-space-md">Autor</th>
+            <th class="py-space-md px-space-md">Categoría</th>
+            <th class="py-space-md px-space-md">Stock</th>
+            <th class="py-space-md px-space-md">Estado</th>
+            <th class="py-space-md px-space-md text-right">Acciones</th>
+          </tr>
+        </thead>
+        <tbody id="books-tbody" class="divide-y-0"></tbody>
+      </table>
+    </div>
+    <div class="flex items-center justify-between p-space-lg bg-surface-container-low/70">
+      <span class="font-body-sm text-body-sm text-on-surface-variant" id="result-count"></span>
+    </div>
+  </div>
+</div>
+</main>
+
+<!-- Modal de vista -->
+<div class="hidden fixed inset-0 z-50 flex items-center justify-center p-space-md bg-primary/40 backdrop-blur-sm" id="view-modal">
+  <div class="bg-surface-container-lowest rounded-xl max-w-md w-full p-space-xl shadow-xl" id="view-modal-body"></div>
+</div>
+
+<script src="js/auth.js"></script>
+<script src="js/empleados.js"></script>
+<script src="js/chrome.js"></script>
+<script src="js/libros.js"></script>
+</body>
+</html>

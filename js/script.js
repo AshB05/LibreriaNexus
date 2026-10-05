@@ -70,6 +70,16 @@ document.addEventListener('DOMContentLoaded', () => {
             }
             const data = await response.json();
             allBooks = data.libros || data;
+            // Ajustes hechos desde el panel de empleados (modo demo, localStorage)
+            try {
+                const ov = JSON.parse(localStorage.getItem('nexus_emp_overrides') || '[]');
+                const created = JSON.parse(localStorage.getItem('nexus_emp_created') || '[]');
+                const deleted = JSON.parse(localStorage.getItem('nexus_emp_deleted') || '[]');
+                allBooks = allBooks
+                    .filter(b => !deleted.includes(b.id))
+                    .map(b => { const o = ov.find(x => x.id === b.id); return o ? Object.assign({}, b, o.changes) : b; })
+                    .concat(created.filter(c => !deleted.includes(c.id)));
+            } catch (e) { /* localStorage no disponible */ }
             filteredBooks = [...allBooks];
             
             // Generar tarjetas de categoría dinámicamente

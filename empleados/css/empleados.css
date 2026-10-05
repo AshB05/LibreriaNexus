@@ -1,0 +1,21 @@
+/* Estilos compartidos del área de empleados de Librería Nexus.
+   El grueso del diseño usa Tailwind CDN (igual que la web pública);
+   aquí van solo utilidades compartidas. */
+
+html, body { margin: 0; padding: 0; }
+body { overscroll-behavior: none; }
+::-webkit-scrollbar { width: 6px; height: 6px; }
+::-webkit-scrollbar-thumb { background: #c5c6cc; border-radius: 9999px; }
+
+.nexus-toast {
+  position: fixed; bottom: 2rem; right: 2rem; z-index: 60;
+  background: #050e1c; color: #fff; border-radius: 0.75rem;
+  padding: 1rem 1.5rem; display: flex; align-items: center; gap: .75rem;
+  box-shadow: 0 18px 40px rgba(5,14,28,.35); border: 1px solid rgba(197,198,204,.3);
+  animation: nexus-fade-in .25s ease-out;
+}
+@keyframes nexus-fade-in { from { opacity: 0; transform: translateY(8px);} to { opacity: 1; transform: none; } }
+
+.badge-disponible { background: #eaf2ed; color: #2a523e; }
+.badge-bajo { background: #fdf4e7; color: #8e5b10; }
+.badge-agotado { background: #eceef4; color: #45474c; }
